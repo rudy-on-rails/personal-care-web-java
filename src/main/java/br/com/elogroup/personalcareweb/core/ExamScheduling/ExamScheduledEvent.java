@@ -2,7 +2,7 @@ package br.com.elogroup.personalcareweb.core.ExamScheduling;
 
 import br.com.elogroup.personalcareweb.core.DomainEvent;
 
-public class ExamScheduledEvent implements DomainEvent{
+public final class ExamScheduledEvent implements DomainEvent{
 
 	private Exam exam;
 
