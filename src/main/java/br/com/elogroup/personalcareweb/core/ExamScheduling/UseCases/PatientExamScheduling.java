@@ -1,10 +1,12 @@
 package br.com.elogroup.personalcareweb.core.ExamScheduling.UseCases;
 
+import br.com.elogroup.personalcareweb.core.DomainEvents;
 import br.com.elogroup.personalcareweb.core.ExamScheduling.Exam;
+import br.com.elogroup.personalcareweb.core.ExamScheduling.ExamScheduledEvent;
 import br.com.elogroup.personalcareweb.core.ExamScheduling.Patient;
 import br.com.elogroup.personalcareweb.core.ExamScheduling.Repositories.PatientsRepository;
 
-public class PatientExamScheduling {
+public class PatientExamScheduling {	
 	private PatientsRepository patientsRepository;	
 
 	public PatientExamScheduling(PatientsRepository patientsRepository){
@@ -13,7 +15,8 @@ public class PatientExamScheduling {
 	
 	public void ScheduleExam(long patientId, Exam exam){
 		Patient patient = patientsRepository.findById(patientId);
-		patient.scheduleExam(exam);		
+		patient.scheduleExam(exam);
+		DomainEvents.raise(new ExamScheduledEvent(exam));
 		this.patientsRepository.save(patient);		
 	}
 }
