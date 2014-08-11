@@ -10,6 +10,11 @@ public class Note extends Entity{
 	private DateTime addedAt;
 	private Nurse nurseAdded;
 	
+	public Note(String description) {
+		this.note = description;
+		this.addedAt = DateTime.now();
+	}
+
 	public DateTime getAddedAt() {
 		return addedAt;
 	}
