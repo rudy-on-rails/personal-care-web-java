@@ -2,15 +2,23 @@ package br.com.elogroup.personalcareweb.core.ExamScheduling;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
 
 import br.com.elogroup.personalcareweb.core.Entity;
 
+@javax.persistence.Entity
 public class Patient extends Entity{
+	@Column(nullable = false)
 	private String name;
-	private List<String> phonesList;
-	private List<PatientRelatedEvent> patientRelatedEvents;
-	private List<Exam> exams;
+	@Column(nullable = false)
 	private String Address;
+	@Transient
+	private List<String> phonesList;
+	@Transient
+	private List<PatientRelatedEvent> patientRelatedEvents;
+	@Transient
+	private List<Exam> exams;
+	
 	
 	public Patient(){
 		this.phonesList = new ArrayList<String>();
