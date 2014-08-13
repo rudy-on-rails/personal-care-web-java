@@ -5,13 +5,13 @@ import javax.persistence.*;
 public abstract class Entity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long Id;
+	private long id;
 
 	public long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(long id) {
-		Id = id;
+		this.id = id;
 	}
 }

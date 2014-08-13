@@ -43,4 +43,8 @@ public abstract class BaseRepository<T extends Entity> implements Repository<T> 
 		return this.sessionFactory.getCurrentSession();
 	}
 	
+	public void setSessionFactory(SessionFactory sessionFactory){
+		this.sessionFactory = sessionFactory;
+	}
+	
 }
