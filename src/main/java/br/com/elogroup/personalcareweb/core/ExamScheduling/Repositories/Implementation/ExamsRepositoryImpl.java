@@ -22,8 +22,8 @@ public class ExamsRepositoryImpl extends BaseRepository<Exam> implements ExamsRe
 		DateTime initialDateToCompare = DateTime.now().plusDays(1).toLocalDate().toDateTimeAtStartOfDay();
 		DateTime finalDateToCompare = DateTime.now().plusDays(2).toLocalDate().toDateTimeAtStartOfDay();		
 		return this.getCurrentSession().createQuery(hql)
-		.setDate("initialDate", initialDateToCompare.toDate())
-		.setDate("finalDate", finalDateToCompare.toDate()).list();		
+		.setParameter("initialDate", initialDateToCompare)
+		.setParameter("finalDate", finalDateToCompare).list();		
 	}
 
 	

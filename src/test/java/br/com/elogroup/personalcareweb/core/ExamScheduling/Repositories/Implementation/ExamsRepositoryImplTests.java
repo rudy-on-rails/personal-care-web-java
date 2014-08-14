@@ -31,7 +31,7 @@ public class ExamsRepositoryImplTests {
 	public void getNextDayExams_WhenThereAreExamsScheduledToTheNextDay_ShouldReturnAllExamsScheduledToNextDay() {
 		examTestFactory.createExamScheduledTo(DateTime.now().plusDays(1)).forARandomPatient();
 		this.examsRepositoryImpl.save(examTestFactory.getCreatedExam());
-		examTestFactory.createExamScheduledTo(DateTime.now().plusDays(1)).forARandomPatient();
+		examTestFactory.createExamScheduledTo(DateTime.now().plusDays(2)).forARandomPatient();
 		this.examsRepositoryImpl.save(examTestFactory.getCreatedExam());
 		List<Exam> nextDayExams = this.examsRepositoryImpl.getNextDayExams();
 		assertEquals(1, nextDayExams.size());
